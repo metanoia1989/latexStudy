@@ -1,0 +1,33 @@
+% 文档和导言区
+
+
+\iffalse
+离谱啊，多行注释竟然这样搞，不够语义化啊    
+
+\documentclass[选项]{文档类}
+a 位于源文件的最前面, 用于指定文档的整体结构和布局, 必须且只能选一种
+◦ 常用 文档类: article, book, beamer,
+ctexart, ctexbook, ctexbeamer
+◦ 常用 选项:
+- 10pt(缺省值), 11pt, 12pt → 指定基本字体的大小
+- letterpaper(缺省值), a4paper, a5paper, ... → 指定纸张的大小
+- 单双面选项: oneside, twoside, openright, openany
+- 数学公式: leqno (公式编号在左边), fleqn (靠左显示行间公式)
+
+导言区: \documentclass 和 \begin{document} 之间的区域
+◦ 导言区用于放置 全局控制命令, 如: 调用宏包, 设置页面大小, ...
+◦ 放在导言区的命令对整个文档都起作用
+\fi
+\documentclass[18pt,a4paper]{article}
+
+\usepackage{amsmath} % AMS 数学公式 宏包
+\usepackage{amssymb} % AMS 数学公式 宏包
+\usepackage{amsfonts} % AMS 数学字体 宏包
+\usepackage{graphicx} % 插图 宏包
+\usepackage{xcolor} % 彩色 宏包
+
+
+\begin{document}
+    The Euler equation is given by 
+    $$ e^{ix} \triangleq \cos(x) + i\sin(x). $$
+\end{document}

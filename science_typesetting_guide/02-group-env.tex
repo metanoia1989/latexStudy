@@ -1,0 +1,25 @@
+% 分组和环境
+
+% 环境: 某些具有特定格式的内容需要放在相应的 环境 中, 如表格, 数学公式等
+% \begin{环境名}
+%     .
+%     .
+%     .
+% \end{环境名}
+% document 是 L A T E X 的一个最基本的环境, 一篇文档有且只能有一个 document 环境
+
+% 分组
+% ◦ 有些命令只对其参数起作用, 如 \textbf{abc}
+% ◦ 有些命令对后面所有的内容都起作用, 这些命令通常也称为声明, 如 \bfseries
+% ◦ 可以利用大括号 (即分组) 来 限制 声明的作用范围
+
+\documentclass{article}
+\usepackage[UTF8]{ctex}
+
+\begin{document}
+    This is \textbf{bold face} style. \\ % 哈哈哈  
+    {
+        This is \bfseries bold face style. \\ % 作用域为命令后面所有的
+    }
+    This is {\bfseries bold face} style. % 限制作用域
+\end{document}
