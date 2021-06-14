@@ -17,6 +17,23 @@ ctexart, ctexbook, ctexbeamer
 导言区: \documentclass 和 \begin{document} 之间的区域
 ◦ 导言区用于放置 全局控制命令, 如: 调用宏包, 设置页面大小, ...
 ◦ 放在导言区的命令对整个文档都起作用
+
+
+宏包使用
+宏包调用方法 (只能出现在导言区)
+\usepackage[选项]{宏包名}
+◦ 如果宏包不带选项, 则可以多个一起调用, 如:
+1 \usepackage{amsmath,amssymb,amsfonts}
+2 \usepackage[pagebackref]{hyperref}
+3 \usepackage[numbers,sort&compress]{natbib}
+
+◦ 常用宏包:
+- geometry, fancyhdr, natbib, float, caption
+- amsmath, amssymb, amsfonts, amsthm, ntheorem, bm, mathtoos
+- xcolor, graphicx, subfigure, epstopdf
+- longtable, colortbl, tcolorbox, mdframed
+- algorithm, algpseudocode, listings
+
 \fi
 \documentclass[18pt,a4paper]{article}
 
