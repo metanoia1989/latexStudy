@@ -1,6 +1,6 @@
 
 \iffalse
-排版基础: 换行, 分段, 分页
+**排版基础: 换行, 分段, 分页**
 换行: 自然换行 (若需 强制换行, 可使用 \\ 或 \linebreak)
 一般情况下, 不建议使用强制换行
 
@@ -15,17 +15,159 @@
 \linespread{1.2}
 段落间距和段落缩进：用自动设定的即可, 英文每节的第一段首行不会自动缩进
 
+-----------------------
+
+**排版基础: 长度**  
+\setlength{长度数据命令}{长度}
+\addtolength{长度数据命令}{长度}
+
+常用长度数据命令 (变量)
+- \textwidth, \textheight, \parindent, \parskip, \baselineskip
+? ?
+1 \setlength{\textwidth}{15cm}
+2 \setlength{\textheight}{21cm}
+3 \setlength{\hoffset}{-5mm} % 长度有时也可以是负值
+
+
+-----------------------
+
+
+**排版基础: 水平间距**      
+◦ \quad → 产生一段宽度为 1em 的水平空白
+◦ \qquad → \quad 的两倍
+◦ \, → 大约为 \quad 的 3/18
+◦ \hspace{宽度} → 产生指定宽度的水平空白
+◦ \hspace*{宽度} → 若要在行首产生一定的空白, 则需使用此命令
+◦ \hfill → 根据排版需要插入空白, 撑满整行
+◦ \hphantom{文本内容}: 水平空白的宽度等于文本内容的总宽度
+
+------------------------
+
+**排版基础: 垂直间距**      
+◦ \smallskip → 垂直空白高度为 3pt plus 1pt minus 1pt
+◦ \medskip → \smallskip 的两倍
+◦ \bigskip → \smallskip 的四倍
+◦ \vspace{高度} → 产生指定高度的垂直空白
+◦ \vspace*{高度}→ 同 \vspace, 主要同在页面的顶部
+◦ \vphantom{文本内容} → 垂直空白的高度等于文本内容的总高度
+
 \fi
 
 \documentclass{article}
 \usepackage[UTF8]{ctex}
+
+\usepackage[breaklinks,colorlinks,linkcolor=black,citecolor=black,urlcolor=black]{hyperref}
+
+\renewcommand{\baselinestretch}{1.2}
+\linespread{1.9}
+
+\setlength{\textwidth}{15cm}
+\setlength{\textheight}{21cm}
+\setlength{\hoffset}{-5mm}
+
+% 页边距
+\usepackage{geometry}
+\newgeometry{left = 3 cm, right = 3 cm, top=2.5cm, bottom=1.5cm}
+
+
+\title{排版基础}
+\author{AdamSmith}
+\date{\today}
+
+% 书签
+\usepackage{hyperref}  % 在\begin{document}之前加入
+\hypersetup{CJKbookmarks=true}
+
 \begin{document}
+    \maketitle % 打印标题
+    
+    \tableofcontents % 目录
+
+    \section{换行}
+
     你好哈哈    \\
     你好哈哈    
     
-    佛告波斯匿王：“如是，大王。如是，大王，世少有人得胜妙财利能不贪著，不起放逸，不起邪行。世多有人得胜妙财利，于财放逸，而起贪著，起诸邪行。大王当知，彼诸世人得胜财利，于财放逸，而起贪著，作邪行者，是愚痴人，长夜当得不饶益苦。大王，譬如猎师、猎师弟子，空野林中张网施羂，多杀禽兽，困苦众生，恶业增广。如是，世人得胜妙财利，于财放逸，而起贪著，造诸邪行，亦复如是。是愚痴人，长夜当得不饶益……”
+    \section{段落}
 
+    佛告波斯匿王：“如是，大王。如是，大王，世少有人得胜妙财利能不贪著，不起放逸，不起邪行。世多有人得胜妙财利，于财放逸，而起贪著，起诸邪行。大王当知，彼诸世人得胜财利，于财放逸，而起贪著，作邪行者，是愚痴人，长夜当得不饶益苦。大王，譬如猎师、猎师弟子，空野林中张网施羂，多杀禽兽，困苦众生，恶业增广。如是，世人得胜妙财利，于财放逸，而起贪著，造诸邪行，亦复如是。是愚痴人，长夜当得不饶益……”
+    \par 哈哈\par
     波斯匿王白佛：“大富，世尊，钱财甚多，百千巨亿金钱宝物，况复余财！世尊，彼摩诃男在世之时，粗衣恶食，如上广说：”
 
+
+    \section{分页}
+    换页了，去下一页查看吧
+    \pagebreak
+
     时，波斯匿王来诣佛所，稽首佛足，退坐一面，白佛言：“世尊，此舍卫国有长者，名摩诃男，多财巨富，藏积真金至百千亿，况复余财！世尊，摩诃男长者如是巨富，作如是食用：食粗碎米，食豆羹，食腐败姜，著粗布衣、单皮革屣，乘羸败车，戴树叶盖，未曾闻其供养施与沙门、婆罗门，给恤贫苦、行路顿乏、诸乞丐者；闭门而食，莫令沙门、婆罗门、贫穷、行路、诸乞丐者见之。”
+    
+    We provide some predefined CSS class names to provide access for developers to style layout of a page globally in Docusaurus. The purpose is to have stable classnames shared by all themes that are meant to be targeted by custom CSS.
+    
+    \section{水平间距}
+
+    AB\quad{}CD\qquad{}EF\,哈哈
+    金刚葫芦娃\hspace{18pt}英雄\\
+    \hspace*{20pt}首行空白使用
+
+    \hfill{}是他就是他，我们的英雄小娜扎。这个是自动撑满的。
+
+    \hphantom{呼和浩特}插入了呼和浩特四字宽度的空白
+    
+    
+    \section{垂直间距}
+    
+    純陀，一些比丘超越了所有的無所有處，他們進入了非想非非想處。這時他們可能
+會認為自己安住在漸損之中。純陀，在聖者的律之中，這不稱為漸損；在聖者的律之中，
+這稱為安住在寂靜之中。
+
+    \smallskip
+
+    純陀，在善法之中即使生起一個心念也能帶來很大的利益，更遑論跟隨善心而作出
+身行和口行了
+
+    \medskip{}
+
+    他人會緊緊取著世俗的見，不易放捨，但我會放捨見取使自己上昇。
+    
+    \vspace{15pt}
+
+    賢友們，什麼是不善？什麼是不善的根源？什麼是善？什麼是善的根源呢？殺生是
+不善的，偷盜是不善的，邪淫是不善的，妄語是不善的，兩舌是不善的，惡口是不善的，
+綺語是不善的，貪欲是不善的，瞋恚是不善的，邪見是不善的。這就是稱為不善了。
+
+    \vphantom{賢友們，什麼是善呢？不殺生是善的，不偷盜是善的，不邪淫是善的，不妄語是善
+    的，不兩舌是善的，不惡口是善的，不綺語是善的，不貪欲是善的，不瞋恚是善的，正見
+    是善的。這就是稱為善了。}
+
+    賢友們，什麼是善呢？不殺生是善的，不偷盜是善的，不邪淫是善的，不妄語是善
+的，不兩舌是善的，不惡口是善的，不綺語是善的，不貪欲是善的，不瞋恚是善的，正見
+是善的。這就是稱為善了。
+
+
+    \section{特殊字符显示}
+    
+    \textbf{有 10 个字符被赋予了特殊用途, 需要使用相应的命令才能输出}
+
+    \# 
+    \$ 
+    \% 
+    \{ 
+    \} 
+    \~{} 
+    \_{} 
+    \^{} 
+    \& 
+    \textbackslash{}
+    
+    \textbf{符号 “>”, “<”, “|” 被定义成数学符号, 只能用在数学模式中, 若要在普通文本中输出, 需使用相应的命令}
+
+    |<> % 实际上是可以输出的
+
+    \textbar
+    \textless
+    \textgreater
+    
+    
+    - -- ---
+
 \end{document}
